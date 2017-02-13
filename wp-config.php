@@ -25,7 +25,7 @@ $connectstr_dbname = '';
 $connectstr_dbusername = '';
 $connectstr_dbpassword = '';
 
-foreach ($_SERVER as $key => $value) {
+foreach ($_ENV as $key => $value) {
     if (strpos($key, "MYSQLCONNSTR_") !== 0) {
         continue;
     }
@@ -35,6 +35,7 @@ foreach ($_SERVER as $key => $value) {
     $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
+
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
